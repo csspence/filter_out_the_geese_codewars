@@ -13,8 +13,24 @@ Your function would return the following array:
 The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
 */
 
-function gooseFilter (birds) {
-  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
-  
-  // return an array containing all of the strings in the input array except those that match strings in geese
+const gooseFilter = (birds) => {
+  let geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  let array = [];
+  let match = false;
+  for(let i = 0; i < birds.length; i++) {
+    for(let j = 0; j < geese.length; j++) {
+      if(birds[i] === geese[j]) {
+        match = true;
+        continue;
+      }
+    }
+    if(match === true){
+      match = false;
+      continue;
+    } else {
+      array.push(birds[i]);
+    }
+  }
+
+  return array;
 };
